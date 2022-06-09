@@ -1,4 +1,4 @@
-# Osu runner
+# Osu wayland/xfce runner
 
 [Osu lazer download](https://github.com/ppy/osu/releases/latest)
 
