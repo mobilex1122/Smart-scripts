@@ -1,0 +1,50 @@
+#!/bin/bash
+
+osupath='/home/mobilex/Applications/osu/osu.AppImage'
+
+
+echo -e "\e[1;34m Setting SDL_VIDEODRIVER to wayland"
+
+if export SDL_VIDEODRIVER=wayland; then
+	echo -e "\e[1;32m Set SDL_VIDEODRIVER to wayland succeeded "
+
+	
+	#OTD preset
+	echo -e "\e[1;34m Changing OTD preset to osu."
+
+	if otd preset osu; then
+    	echo -e "\e[1;32m OTD presset is set osu."
+	
+		
+		
+		
+		echo -e "\e[1;34m Running osu"
+
+		$osupath
+
+
+		echo -e "\e[1;34m Changing OTD preset to normal."
+
+		if otd preset normal; then
+		    echo -e "\e[1;32m OTD presset is set to normal."
+		
+		
+		
+		
+		else
+		    echo -e "\e[1;31m OTD presset apply failed."
+		fi
+	else
+    	echo -e "\e[1;31m OTD presset set failed."
+	fi
+else
+    echo -e "\e[1;31m Set SDL_VIDEODRIVER to wayland failed"
+fi
+
+
+echo -e "\e[0m"
+
+
+read -n 1 -s -r -p "Press any key to exit"
+
+
